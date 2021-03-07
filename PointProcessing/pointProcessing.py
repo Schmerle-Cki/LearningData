@@ -72,7 +72,7 @@ def equalization(histogram):
 def matching(source, target):
     total_len = len(source)
     assert total_len == len(target)
-    print(total_len)
+    print('matching source length:', str(total_len))
 
     LUT = {}
     for i in range(0, total_len):
@@ -215,19 +215,23 @@ if __name__ == "__main__":
     min_1 = label.min()
     max_1 = label.max()
     LUT = contrast_stretch(min_1, max_1, 100, 200)
+    # generally, stretch should be implemented in all 3 channels
+    # however, in this case, merely adjust in red channel has a better effect
     adjust_per_pixel(raw_img('Camera-Man.jpg'), modified_img("Camera-Man-After-linear-stretch.jpg"), LUT, LUT, LUT,
-                     color_type='gray')
+                     color_type='grey')
 
     # TODO: matching
     print("start matching")
+
+    # RGB
+    '''
     LUT = adjust_contrast(gamma=0.8)
     after_brightness = adjust_per_pixel(raw_img('rainbow.jpg'), modified_img("rainbow-After-gamma-0.8.jpg"), LUT, LUT, LUT)
 
     LUT = center_contrast(2.0)
     adjust_per_pixel('', modified_img("rainbow-After-gamma-0.8-contrast-2.0.jpg"), LUT, LUT, LUT, array=after_brightness)
-
-    # RGB
-    '''from_img = Image.open(modified_img('rainbow-After-gamma-0.8-contrast-2.0.jpg'))
+    
+    from_img = Image.open(modified_img('rainbow-After-gamma-0.8-contrast-2.0.jpg'))
     target_img = Image.open(raw_img('rainbow-cartoon.jpg'))
     h1, r1, g1, b1 = get_rgb_histogram(target_img)
     h2, r2, g2, b2 = get_rgb_histogram(from_img)
@@ -235,7 +239,8 @@ if __name__ == "__main__":
     LUT_G = matching(g2, g1)
     LUT_B = matching(b2, b1)
     adjust_per_pixel(modified_img('rainbow-After-gamma-0.8-contrast-2.0.jpg'),
-                     modified_img('rainbow-After-matching.jpg'), LUT_R, LUT_G, LUT_B)'''
+                     modified_img('rainbow-After-matching.jpg'), LUT_R, LUT_G, LUT_B)
+    '''
 
     # grey
     from_img = Image.open(raw_img('chinese_building_grey.jpg'))
