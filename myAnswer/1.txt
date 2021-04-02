@@ -1,0 +1,24 @@
+Miss
+Miss
+Miss
+Miss
+Miss
+Hit
+Hit
+Hit
+Miss
+Miss
+Miss
+Miss
+Miss
+Miss
+Hit
+Miss
+Hit
+Hit
+Miss
+Hit
+Hit
+Hit
+Hit
+Miss Rate:  56.5217%
