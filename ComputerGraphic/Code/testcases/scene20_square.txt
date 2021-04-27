@@ -1,0 +1,129 @@
+
+PerspectiveCamera {
+    center 0 2 18
+    direction 0 0 -1
+    up 0 1 0
+    angle 36
+    width 400
+    height 400
+}
+
+Lights {
+    numLights 2
+    PointLight {
+        position -1 2.9 0
+        color 0.9 0.9 0.9
+    }
+    PointLight {
+        position 0.5 1  5
+        color 0.3 0.3 0.3
+    }
+}
+
+Background {
+    color 0 0 0
+}
+
+Materials {
+    numMaterials 7
+    Material { 
+        diffuseColor 0.1 0.1 0.1 
+        specularColor 0 0 0
+	w_reflect 0.1
+	w_transmit 0.94
+        Refraction 1.5
+    }
+    Material { 
+        diffuseColor 0.949 0.612 0.694
+        specularColor 0.3 0.3 0.3
+	w_reflect 0.1
+    }
+
+    Material { 
+        diffuseColor 1 1 1 
+	    specularColor 0 0 0
+	    shininess 20
+	w_reflect 0.01
+    }
+    Material { 
+        diffuseColor 0.9 0.5 0.5
+	    specularColor 0 0 0
+	    shininess 20
+    }
+    Material { 
+        diffuseColor 0.5 0.5 0.9
+	    specularColor 0 0 0
+	    shininess 20
+    }
+    Material { 
+        diffuseColor 0.5 0.9 0.5
+	    specularColor 0 0 0
+	    shininess 20
+    }
+Material { diffuseColor 1 1 1 
+	specularColor 0 0 0
+	shininess 20
+}
+}
+
+Group {
+    numObjects 7
+    MaterialIndex 0
+    Transform {
+	Scale  12 12 12
+	Translate  0.1 -0.152 0.04 	
+        TriangleMesh {
+            obj_file mesh/bunny_1k.obj
+        }
+    }
+    MaterialIndex 1
+    Sphere {
+        center -2.5 -0.4 3.8
+        radius 0.8
+    }
+    MaterialIndex 2
+    Plane {
+        normal 0 1 0
+        offset -1.2
+    }
+   MaterialIndex 3
+   Square {
+        controls
+                [ 1 0 0 ] 
+	[ -5 7 -3 ]   
+	[ -5 7 7]
+	[ -5 -2 7 ]
+	[ -5 -2 -3 ]
+    }
+    MaterialIndex 4
+    Square {
+        controls
+                [ -1 0 0 ] 
+	[ 5 7 7 ]   
+	[ 5 7 -3 ]
+	[ 5 -2 -3 ]
+	[ 5 -2 7 ]
+    }
+   MaterialIndex 5
+   Square {
+        controls
+                [ 0 0 1 ] 
+	[ -5 7 -3 ]   
+	[ -5 7 7]
+	[ -5 -2 7 ]
+	[ -5 -2 -3 ]
+    }
+
+
+   
+MaterialIndex 6
+Square {
+        controls
+                [ 0 0 1 ] 
+	[ 5 7 -3 ]   
+	[ -5 7 -3 ]
+	[ -5 -2 -3 ]
+	[ 5 -2 -3 ]
+       Texture data/dBird.ppm
+    }
+}

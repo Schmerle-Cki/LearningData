@@ -1,0 +1,145 @@
+
+PerspectiveCamera {
+    center -0.5 2 20
+    direction 0.1 0.1 -1
+    up 0 1 0
+    angle 36
+    width 640
+    height 640
+}
+
+Lights {
+    numLights 1
+    AreaLight {
+        center 3 10 20
+        normal 0 0 -1
+        color 0.8 0.8 0.8 
+        radius 8.0
+    }
+    PointLight {
+        position -5 10 20
+        color 0 0 0
+    }
+}
+
+Background {
+    color 1 1 1
+}
+
+Materials {
+    numMaterials 7
+    Material { 
+        diffuseColor 1 0.7529 0.7961 
+        specularColor 0 0 0
+	w_reflect 0.1
+	w_transmit 0.7
+        Refraction 1.5
+    }
+    Material { 
+        diffuseColor 1 1 1
+        specularColor 0 0 0
+	w_reflect 0.6
+    }
+
+    Material { 
+        diffuseColor 1 1 1 
+	    specularColor 0 0 0
+	    shininess 20
+    }
+    Material { 
+        diffuseColor 0.9 0.5 0.5
+	    specularColor 0 0 0
+	    shininess 20
+                 w_reflect 0.4
+	 w_transmit 0.1
+	 Refraction 1.2
+    }
+    Material { 
+        diffuseColor 0.5 0.5 0.9
+	    specularColor 0 0 0
+	    shininess 20
+	    w_reflect 0.05
+    }
+    Material { 
+        diffuseColor 1.0 1.0 1.0
+	    specularColor 0 0 0
+	    shininess 20
+    }
+  Material { diffuseColor 1 1 1 
+	specularColor 0 0 0
+	shininess 20
+}
+}
+
+Group {
+    numObjects 8
+    MaterialIndex 1
+    Sphere {
+        center -2 1.8 2
+        radius 1
+    }
+    MaterialIndex 0
+    Sphere {
+        center 2.5 0.8 5
+        radius 0.5
+    }
+    MaterialIndex 2
+    Square {
+        controls
+                [ 0 1 0 ] 
+	[ 10 0.3 -4 ]   
+	[ -6 0.3 -4]
+	[ -6 0.3 14 ]
+	[ 10 0.3 14 ]
+       Texture data/Simple.ppm
+    }
+
+   MaterialIndex 4
+    Square {
+        controls
+                [ 0 1 0 ] 
+	[ -1 0.8 -0.5 ]   
+	[ -3 0.8 -2 ]
+	[ -4 0.8 4 ]
+	[ -2 0.8 5.5 ]
+       Texture data/wood.ppm
+    }
+    Square {
+        controls
+                [ 0 0 1 ] 
+	[ -2 0.8 5.5 ]   
+	[ -4 0.8 4 ]
+	[ -4 0.3 4 ]
+	[ -2 0.3 5.5 ]
+       Texture data/wood.ppm
+    }
+    Square {
+        controls
+                [ 1 0 0 ] 
+	[ -1 0.8 -0.5 ]   
+	[ -2 0.8 5.5 ]
+	[ -2 0.3 5.5 ]
+	[ -1 0.3 -0.5 ]
+       Texture data/wood.ppm
+    }
+ 
+    MaterialIndex 6
+    Square {
+        controls
+                [ 0 0 1 ] 
+	[ 12 14 -4 ]   
+	[ -6 14 -4]
+	[ -6 -4 -4 ]
+	[ 12 -4 -4 ]
+       Texture data/berry.ppm
+    }
+    MaterialIndex 3
+    BezierCurve {
+            controls
+                [ 1 0 0 ]
+	[ 3 4 0 ]   
+	[ 0 5 0 ]
+	[ 1.2 7 0 ]
+            Texture data/timg.ppm
+        }
+}
